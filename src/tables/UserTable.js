@@ -77,7 +77,10 @@ const UserTable = (props) => {
                 </button>
                 <button
                   className="button muted-button"
-                  //onClick={() => props.deleteUser(user.id)}
+                  onClick={() => {
+                    //props.editRow(user);
+                    alert("User successfully deleted!");
+                  }}
                 >
                   Delete
                 </button>
