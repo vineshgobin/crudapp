@@ -4,6 +4,13 @@ import React, { useState, useEffect } from "react";
 import { API_URL } from "../Constants";
 //import EmployeeService from '../api/EmployeeService.js'
 
+const goToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 const UserTable = (props) => {
   const [employees, setEmployees] = useState([]);
 
@@ -63,6 +70,7 @@ const UserTable = (props) => {
                   className="button muted-button"
                   onClick={() => {
                     //props.editRow(user);
+                    goToTop();
                   }}
                 >
                   Edit
