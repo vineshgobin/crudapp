@@ -41,6 +41,7 @@ const UserTable = (props) => {
             <th>Dept Code</th>
             <th>Job Code</th>
             <th>Manager ID</th>
+            <th>Operations</th>
           </tr>
         </thead>
         <tbody>
@@ -78,54 +79,6 @@ const UserTable = (props) => {
         </tbody>
       </table>
     </div>
-    //const [user, setUser] = useState(initialFormState);
-    // <table>
-    //   <thead>
-    //     <tr>
-    //       <th>ID</th>
-    //       <th>First name</th>
-    //       <th>Middle Name</th>
-    //       <th>Last Name</th>
-    //       <th>SOC</th>
-    //       <th>Hire date</th>
-    //       <th>Salary</th>
-    //       <th>Commission PCT</th>
-    //       <th>Dept Code</th>
-    //       <th>Job Code</th>
-    //       <th>Manager ID</th>
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     {props.users.length > 0 ? (
-    //       props.users.map((user) => (
-    //         <tr key={user.id}>
-    //           <td>{user.name}</td>
-    //           <td>{user.username}</td>
-    //           <td>
-    //             <button
-    //               className="button muted-button"
-    //               onClick={() => {
-    //                 props.editRow(user);
-    //               }}
-    //             >
-    //               Edit
-    //             </button>
-    //             <button
-    //               className="button muted-button"
-    //               onClick={() => props.deleteUser(user.id)}
-    //             >
-    //               Delete
-    //             </button>
-    //           </td>
-    //         </tr>
-    //       ))
-    //     ) : (
-    //       <tr>
-    //         <td colSpan={3}>No users</td>
-    //       </tr>
-    //     )}
-    //   </tbody>
-    // </table>
   );
 };
 
