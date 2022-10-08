@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from "react";
-//import axios from 'axios'
-
-import { API_URL } from "../Constants";
-//import EmployeeService from '../api/EmployeeService.js'
+import React, { useState } from "react";
 
 const goToTop = () => {
   window.scrollTo({
@@ -11,27 +7,7 @@ const goToTop = () => {
   });
 };
 
-const UserTable = (props) => {
-  const [employees, setEmployees] = useState([]);
-
-  // this.employees;
-  /*
-    static setEmployees(value) {
-        this.employees = value
-    }
-    */
-
-  useEffect(() => {
-    fetch(`${API_URL}/employees`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setEmployees(data.items);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
+const UserTable = ({ employees, deleteEmployee, editRow }) => {
   return (
     <div>
       <table>
@@ -69,7 +45,7 @@ const UserTable = (props) => {
                 <button
                   className="button muted-button"
                   onClick={() => {
-                    //props.editRow(user);
+                    editRow(emp);
                     goToTop();
                   }}
                 >
@@ -78,7 +54,7 @@ const UserTable = (props) => {
                 <button
                   className="button muted-button"
                   onClick={() => {
-                    //props.editRow(user);
+                    deleteEmployee(emp.employee_id);
                     alert("User successfully deleted!");
                   }}
                 >
