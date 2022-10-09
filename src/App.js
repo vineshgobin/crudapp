@@ -8,15 +8,15 @@ import {
   getEmployees,
   createEmployee,
   deleteEmployee,
+  updateEmployeeConst,
 } from "./api/EmployeeService";
 
 const App = () => {
   const initialFormState = {
     id: null,
-    first_name: "",
-    middle_name: "",
-    last_name: "",
-    soc: "",
+    firstName: "",
+    middle: "",
+    lastName: "",
   };
   //const [currentUser, setCurrentUser] = useState(initialFormState);
 
@@ -31,6 +31,7 @@ const App = () => {
   }, []);
 
   const editRow = (employee) => {
+    console.log(employee);
     setEditing(true);
     setEmployee(employee);
   };
@@ -50,11 +51,13 @@ const App = () => {
 
   const updateEmployee = (id, updatedEmployee) => {
     setEditing(false);
-    setEmployees(
+    setEmployee(
       employees.map((employee) =>
         employee.id === id ? updatedEmployee : employee
       )
     );
+    updateEmployeeConst({ id: id, body: updatedEmployee });
+    console.log({ updatedEmployee });
   };
 
   // const updateUser = (id, updatedUser) => {

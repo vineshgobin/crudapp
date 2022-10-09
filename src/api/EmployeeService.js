@@ -48,6 +48,22 @@ export const deleteEmployee = async (id) => {
   }
 };
 
+export const updateEmployeeConst = async ({ id, body }) => {
+  try {
+    const response = await fetch(
+      `https://apex.oracle.com/pls/apex/hoangtuanmai/api/employee/${id}`,
+      {
+        // const response = await fetch(`${API_URL}/employee`, {
+        method: "PUT",
+        body: JSON.stringify(body),
+      }
+    );
+    return response;
+  } catch (error) {
+    console.log({ error });
+  }
+};
+
 // export const updateEmployee = (id, firstname, middlename, lastname, soc, hiredate, salary, commissionpct, departmentcode, jodcode, managerid) => {
 //   //console.log('executed service')
 //   return axios.put(`${API_URL}/employee/${id}`);

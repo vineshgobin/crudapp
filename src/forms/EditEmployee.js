@@ -16,13 +16,14 @@ const EditEmployeeForm = (props) => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        props.updateEmployee(employee.id, employee);
+        props.updateEmployee(employee.employee_id, employee);
+        console.log(employee);
       }}
     >
       <label>First name</label>
       <input
         type="text"
-        name="firstName"
+        name="first_name"
         value={employee.first_name}
         onChange={handleInputChange}
       />
@@ -30,7 +31,7 @@ const EditEmployeeForm = (props) => {
       <label>Middle name</label>
       <input
         type="text"
-        name="middle"
+        name="middle_initial"
         value={employee.middle_initial}
         onChange={handleInputChange}
       />
@@ -38,7 +39,7 @@ const EditEmployeeForm = (props) => {
       <label>Last name</label>
       <input
         type="text"
-        name="middle"
+        name="last_name"
         value={employee.last_name}
         onChange={handleInputChange}
       />
@@ -46,7 +47,7 @@ const EditEmployeeForm = (props) => {
       <label>SOC</label>
       <input
         type="text"
-        name="soc"
+        name="soc_sec_no"
         value={employee.soc_sec_no}
         onChange={handleInputChange}
       />
@@ -54,7 +55,7 @@ const EditEmployeeForm = (props) => {
       <label>Hire date</label>
       <input
         type="date"
-        name="hiredate"
+        name="hire_date"
         value={employee.hire_date}
         onChange={handleInputChange}
       />
@@ -70,7 +71,7 @@ const EditEmployeeForm = (props) => {
       <label>Commission PCT</label>
       <input
         type="text"
-        name="commissionPCT"
+        name="commission_pct"
         value={employee.commission_pct}
         onChange={handleInputChange}
       />
@@ -78,7 +79,7 @@ const EditEmployeeForm = (props) => {
       <label>Department code</label>
       <input
         type="text"
-        name="departmentCode"
+        name="department_code"
         value={employee.department_code}
         onChange={handleInputChange}
       />
@@ -86,7 +87,7 @@ const EditEmployeeForm = (props) => {
       <label>Job code</label>
       <input
         type="text"
-        name="jobCode"
+        name="job_code"
         value={employee.job_code}
         onChange={handleInputChange}
       />
@@ -94,7 +95,7 @@ const EditEmployeeForm = (props) => {
       <label>Manager ID</label>
       <input
         type="text"
-        name="managerID"
+        name="manager_id"
         value={employee.manager_id}
         onChange={handleInputChange}
       />
