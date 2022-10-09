@@ -1,62 +1,72 @@
-import React, { useEffect, useState } from "react"
-import UserTable from "./tables/UserTable"
-import AddEmployeeForm from "./forms/AddEmployee"
-import EditUserForm from "./forms/EditUser"
-import "./App.css"
+import React, { useEffect, useState } from "react";
+import UserTable from "./tables/UserTable";
+import AddEmployeeForm from "./forms/AddEmployee";
+import EditEmployeeForm from "./forms/EditEmployee";
+import "./App.css";
 
-import { getEmployees, createEmployee, deleteEmployee } from './api/EmployeeService'
+import {
+  getEmployees,
+  createEmployee,
+  deleteEmployee,
+  updateEmployeeConst,
+} from "./api/EmployeeService";
 
 const App = () => {
-  const initialFormState = { id: null, name: "", username: "" }
-  const [currentUser, setCurrentUser] = useState(initialFormState)
-
-  const [employees, setEmployees] = useState([])
-  const [editing, setEditing] = useState(false)
+  const [employees, setEmployees] = useState([]);
+  const [editing, setEditing] = useState(false);
+  const [employee, setEmployee] = useState([]);
 
   // Get employees
   useEffect(async () => {
-    const employees = await getEmployees()
-    setEmployees(employees)
-  }, [])
+    const employees = await getEmployees();
+    setEmployees(employees);
+  }, []);
 
-  const editRow = (user) => {
-    setEditing(true)
-    setCurrentUser(user)
-  }
+  // Allows us to edit an employee
+  const editRow = (employee) => {
+    setEditing(true);
+    setEmployee(employee);
+  };
 
+  // Add employee
   const addEmployee = (employee) => {
-    console.log({ employee })
-    employee.id = employees.length + 1
-    setEmployees([...employees, employee])
-    createEmployee({ body: employee })
-  }
+    console.log({ employee });
+    employee.id = employees.length + 1;
+    setEmployees([...employees, employee]);
+    createEmployee({ body: employee });
+  };
 
+  // Delete employee
   const delEmployee = (id) => {
-    console.log({ id })
-    setEmployees(employees.filter((employee) => employee.id !== id))
-    deleteEmployee(id)
-  }
+    console.log({ id });
+    setEmployees(employees.filter((employee) => employee.id !== id));
+    deleteEmployee(id);
+  };
 
-  // const updateUser = (id, updatedUser) => {
-  //   setEditing(false)
-  //   setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
-  // }
-
-  console.log({ editing });
+  // Update employee
+  const updateEmployee = (id, updatedEmployee) => {
+    setEditing(false);
+    setEmployee(
+      employees.map((employee) =>
+        employee.id === id ? updatedEmployee : employee
+      )
+    );
+    updateEmployeeConst({ id: id, body: updatedEmployee });
+  };
 
   return (
     <div className="container">
-      <h1>CRUD App with Hooks</h1>
+      <h1>CRUD App - Oracle Databse</h1>
       <div className="d-flex">
         <div className="w-50">
           {editing ? (
             <div>
               <h2>Edit Employee</h2>
-              <EditUserForm
+              <EditEmployeeForm
                 editing={editing}
                 setEditing={setEditing}
-                currentUser={currentUser}
-              // updateUser={updateUser}
+                employee={employee}
+                updateEmployee={updateEmployee}
               />
             </div>
           ) : (
@@ -76,7 +86,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
