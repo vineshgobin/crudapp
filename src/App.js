@@ -56,7 +56,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>CRUD App with Hooks</h1>
+      <h1>CRUD App - Oracle Databse</h1>
       <div className="d-flex">
         <div className="w-50">
           {editing ? (
