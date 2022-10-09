@@ -12,17 +12,17 @@ import {
 } from "./api/EmployeeService";
 
 const App = () => {
-  const initialFormState = {
+  /* const initialFormState = {
     id: null,
     firstName: "",
     middle: "",
     lastName: "",
-  };
+  }; */
   //const [currentUser, setCurrentUser] = useState(initialFormState);
 
   const [employees, setEmployees] = useState([]);
   const [editing, setEditing] = useState(false);
-  const [employee, setEmployee] = useState(initialFormState);
+  const [employee, setEmployee] = useState([]);
 
   // Get employees
   useEffect(async () => {
