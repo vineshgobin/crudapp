@@ -12,14 +12,6 @@ import {
 } from "./api/EmployeeService";
 
 const App = () => {
-  /* const initialFormState = {
-    id: null,
-    firstName: "",
-    middle: "",
-    lastName: "",
-  }; */
-  //const [currentUser, setCurrentUser] = useState(initialFormState);
-
   const [employees, setEmployees] = useState([]);
   const [editing, setEditing] = useState(false);
   const [employee, setEmployee] = useState([]);
@@ -30,12 +22,14 @@ const App = () => {
     setEmployees(employees);
   }, []);
 
+  // Allows us to edit an employee
   const editRow = (employee) => {
     console.log(employee);
     setEditing(true);
     setEmployee(employee);
   };
 
+  // Add employee
   const addEmployee = (employee) => {
     console.log({ employee });
     employee.id = employees.length + 1;
@@ -43,12 +37,14 @@ const App = () => {
     createEmployee({ body: employee });
   };
 
+  // Delete employee
   const delEmployee = (id) => {
     console.log({ id });
     setEmployees(employees.filter((employee) => employee.id !== id));
     deleteEmployee(id);
   };
 
+  // Update employee
   const updateEmployee = (id, updatedEmployee) => {
     setEditing(false);
     setEmployee(
@@ -59,11 +55,6 @@ const App = () => {
     updateEmployeeConst({ id: id, body: updatedEmployee });
     console.log({ updatedEmployee });
   };
-
-  // const updateUser = (id, updatedUser) => {
-  //   setEditing(false)
-  //   setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
-  // }
 
   console.log({ editing });
 
