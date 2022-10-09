@@ -1,4 +1,3 @@
-// import axios from 'axios'
 // import API_URL from '../Constants'
 
 export const getEmployees = async () => {
@@ -32,8 +31,6 @@ export const createEmployee = async ({ body }) => {
 };
 
 export const deleteEmployee = async (id) => {
-  //console.log('executed service')
-  // return axios.delete(`${API_URL}/employee/${id}`);
   try {
     const response = await fetch(
       `https://apex.oracle.com/pls/apex/hoangtuanmai/api/employee/${id}`,
