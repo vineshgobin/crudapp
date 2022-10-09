@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "eslint-scope": "^7.1.1",
+    "moment": "^2.29.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "0.9.x"

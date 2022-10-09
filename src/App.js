@@ -38,7 +38,6 @@ const App = () => {
 
   // Delete employee
   const delEmployee = (id) => {
-    console.log({ id });
     setEmployees(employees.filter((employee) => employee.id !== id));
     deleteEmployee(id);
   };
@@ -55,13 +54,13 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <h1>CRUD App - Oracle Databse</h1>
+    <div className="px-5">
+      <h1 className="text-center text-info">CRUD App - Oracle Databse</h1>
       <div className="d-flex">
-        <div className="w-50">
+        <div className="w-25">
           {editing ? (
             <div>
-              <h2>Edit Employee</h2>
+              <h2 className="text-secondary">Edit Employee</h2>
               <EditEmployeeForm
                 editing={editing}
                 setEditing={setEditing}
