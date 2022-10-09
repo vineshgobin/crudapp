@@ -24,7 +24,6 @@ const App = () => {
 
   // Allows us to edit an employee
   const editRow = (employee) => {
-    console.log(employee);
     setEditing(true);
     setEmployee(employee);
   };
@@ -53,10 +52,7 @@ const App = () => {
       )
     );
     updateEmployeeConst({ id: id, body: updatedEmployee });
-    console.log({ updatedEmployee });
   };
-
-  console.log({ editing });
 
   return (
     <div className="container">
