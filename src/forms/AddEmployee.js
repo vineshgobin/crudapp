@@ -26,7 +26,7 @@ const AddEmployee = ({ addEmployee }) => {
         return Number(value)
 
       if (name === 'hire_date')
-        return moment(value).format('MM/DD/YYYY').toString()
+        return moment(value).format('MM/DD/YYYY')
 
       return value
     }
@@ -55,7 +55,7 @@ const AddEmployee = ({ addEmployee }) => {
       <input type="text" name="soc_sec_no" value={user.soc_sec_no} onChange={handleInputChange} />
 
       <label>Hire date</label>
-      <input type="date" name="hire_date" value={user.hire_date} onChange={handleInputChange} />
+      <input type="date" name="hire_date" defaultValue={user.hire_date} onChange={handleInputChange} />
 
       <label>Salary</label>
       <input type="text" name="salary" value={user.salary} onChange={handleInputChange} />

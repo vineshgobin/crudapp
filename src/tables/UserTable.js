@@ -101,7 +101,7 @@ const UserTable = ({ employees, deleteEmployee, editRow }) => {
               <td className="align-middle">{emp.middle_initial || '-'}</td>
               <td className="align-middle">{emp.last_name || '-'}</td>
               <td className="align-middle">{emp.soc_sec_no || '-'}</td>
-              <td className="align-middle">{emp.hire_date || '-'}</td>
+              <td className="align-middle">{moment(emp.hire_date).format('MM/DD/YYYY') || '-'}</td>
               <td className="align-middle">{emp.salary || '-'}</td>
               <td className="align-middle">{emp.commission_pct || '-'}</td>
               <td className="align-middle">{emp.department_code || '-'}</td>
