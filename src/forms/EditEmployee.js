@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from 'moment';
 
 const EditEmployeeForm = (props) => {
   const [employee, setEmployee] = useState(props.employee);
@@ -9,7 +10,18 @@ const EditEmployeeForm = (props) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setEmployee({ ...employee, [name]: value });
+
+    const sanitizeValue = (name, value) => {
+      if (name === 'soc_sec_no' || name === 'manager_id')
+        return Number(value)
+
+      if (name === 'hire_date')
+        return moment(value).format('MM/DD/YYYY')
+
+      return value
+    }
+
+    setEmployee({ ...employee, [name]: sanitizeValue(name, value) });
   };
 
   return (
@@ -56,7 +68,7 @@ const EditEmployeeForm = (props) => {
       <input
         type="date"
         name="hire_date"
-        value={employee.hire_date}
+        defaultValue={employee.hire_date}
         onChange={handleInputChange}
       />
 
